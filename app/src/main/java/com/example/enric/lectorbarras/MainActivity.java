@@ -12,11 +12,16 @@ import com.google.zxing.Result;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import me.dm7.barcodescanner.core.CameraPreview;
+import me.dm7.barcodescanner.core.CameraWrapper;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
 
-private ZXingScannerView escanerView;
+    private ZXingScannerView escanerView;
+    private static final int REQUEST_CAMERA = 1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,8 @@ private ZXingScannerView escanerView;
         /*FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.blankFragment, new BlankFragment());
         ft.commit();*/
+        //this.escanerView = new CameraPreview(this.getApplicationContext());
+
     }
 
     @Override
@@ -79,4 +86,6 @@ private ZXingScannerView escanerView;
         super.onPause();
         escanerView.stopCamera();
     }
+
+
 }
